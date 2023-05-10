@@ -24,32 +24,31 @@ RUN apk --no-cache add \
       libstdc++ \
       libgcc \
       dbus \
-      xterm \
-    && cd /tmp \
+      xterm
+RUN cd /tmp \
     && wget -q http://downloads.rclone.org/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip \
     && unzip /tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip \
     && mv /tmp/rclone-*-linux-${ARCH}/rclone /usr/bin \
     && rm -r /tmp/rclone* && \
-
     apk add --no-cache --virtual=build-dependencies \
         build-base \
         cmake \
         make \
         gcc \
         git \
-        qt5-qtbase qt5-qtmultimedia-dev qt5-qttools-dev && \
+        qt5-qtbase qt5-qtmultimedia-dev qt5-qttools-dev
 
 # Compile RcloneBrowser
-    git clone https://github.com/kapitainsky/RcloneBrowser.git /tmp && \
+RUN git clone https://github.com/kapitainsky/RcloneBrowser.git /tmp && \
     mkdir /tmp/build && \
     cd /tmp/build && \
     cmake .. && \
     cmake --build . && \
     ls -l /tmp/build && \
-    cp /tmp/build/build/rclone-browser /usr/bin  && \
+    cp /tmp/build/build/rclone-browser /usr/bin
 
-    # cleanup
-     apk del --purge build-dependencies && \
+# cleanup
+RUN apk del --purge build-dependencies && \
     rm -rf /tmp/*
 
 # Maximize only the main/initial window.
@@ -79,5 +78,5 @@ LABEL \
       org.label-schema.name="rclonebrowser" \
       org.label-schema.description="Docker container for RcloneBrowser" \
       org.label-schema.version="unknown" \
-      org.label-schema.vcs-url="https://github.com/romancin/rclonebrowser-docker" \
+      org.label-schema.vcs-url="https://github.com/jdgon/rclonebrowser-docker" \
       org.label-schema.schema-version="1.0"

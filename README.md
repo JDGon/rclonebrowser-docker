@@ -1,14 +1,6 @@
 # rclonebrowser-docker
 
-A repository for creating a docker container including RClone Browser with GUI interface, based on [kapitainsky fork](https://github.com/kapitainsky/RcloneBrowser)
-
-Thank you for continue developing this awesome software :)
-
-[![](https://images.microbadger.com/badges/version/romancin/rclonebrowser.svg)](https://microbadger.com/images/romancin/rclonebrowser "Docker image version")
-[![](https://images.microbadger.com/badges/image/romancin/rclonebrowser.svg)](https://microbadger.com/images/romancin/rclonebrowser "Docker image size")
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X2CT2SWQCP74U)
-
-You can invite me a beer if you want ;)
+A repository for creating a docker container including RClone Browser with GUI interface, based on [kapitainsky fork](https://github.com/kapitainsky/RcloneBrowser) and [romancin docker image](https://github.com/romancin/rclonebrowser-docker)
 
 This is a completely funcional Docker image with RClone Browser (kapytainsky fork).
 
@@ -33,7 +25,7 @@ docker run -d --name=rclonebrowser \
 -e GROUP_ID=0 -e USER_ID=0 -e TZ=Europe/Madrid \
 -p 5800:5800 \
 -p 5900:5900 \
-romancin/rclonebrowser:latest
+jdgon/rclonebrowser:latest
 ```
 
 Browse to `http://your-host-ip:5800` to access the RClone Browser GUI.
@@ -276,15 +268,3 @@ server {
 
 [TimeZone]: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
-## Support or Contact
-
-Having troubles with the container or have questions?  Please
-[create a new issue].
-
-
-## Changelog
-v4.0.1 (28/09/2022): Update Rclone and Rclonebrowser to current version
-v4.0.0 (18/05/2022): Update Rclone and Rclonebrowser to current version
-v3.0.2 (09/09/2020): Updated to Alpine 3.12 and Rclone current version
-v3.0.0 (22/03/2019): Updated to RcloneBrowser 1.8.0 version
-v1.0.1 (22/09/2019): Updated to latest image from jlesage and added Jenkinsfile for CI
