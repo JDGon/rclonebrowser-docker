@@ -32,7 +32,7 @@ is_rclonebrowser_running() {
 start_rclonebrowser() {
         dbus-uuidgen
         export TERMINAL=xterm
-	#/usr/bin/rclone-browser > /config/logs/output.log 2>&1 &
+    #/usr/bin/rclone-browser > /config/logs/output.log 2>&1 &
     /usr/bin/rclone-browser > /config/logs/output.log 2>&1
 }
 
